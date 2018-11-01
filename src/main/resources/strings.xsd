@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="resources">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="string"/>
+        <xs:element ref="string-array"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="string">
+    <xs:complexType mixed="true">
+      <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="string-array">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="item"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item" type="xs:string"/>
+</xs:schema>
